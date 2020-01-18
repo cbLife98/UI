@@ -34,8 +34,9 @@ class _WhatsappHomeState extends State<WhatsappHome> with SingleTickerProviderSt
             ],
         ),
       ),
-      body: new Container(
-
+      body: new TabBarView(
+        controller: _tabController,
+        children: <Widget>[],
       ),
     );
   }
