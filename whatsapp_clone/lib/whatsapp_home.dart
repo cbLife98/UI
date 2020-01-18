@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/pages/call_screen.dart';
+import 'package:whatsapp_clone/pages/camera_screen.dart';
+import 'package:whatsapp_clone/pages/chat_screen.dart';
+import 'package:whatsapp_clone/pages/status_screen.dart';
 
 
 class WhatsappHome extends StatefulWidget {
@@ -20,6 +24,11 @@ class _WhatsappHomeState extends State<WhatsappHome> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        actions: <Widget>[
+          new Icon(Icons.search),
+          new Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
+          new Icon(Icons.more_vert)
+        ],
         title: new Text("WhatsApp"),
         elevation: 0.7,
         bottom: new TabBar(
@@ -36,7 +45,17 @@ class _WhatsappHomeState extends State<WhatsappHome> with SingleTickerProviderSt
       ),
       body: new TabBarView(
         controller: _tabController,
-        children: <Widget>[],
+        children: <Widget>[
+          new CameraScreen(),
+          new ChatScreen(),
+          new StatusScreen(),
+          new CallScreen()
+        ],
+      ),
+      floatingActionButton: new FloatingActionButton(
+        backgroundColor: Theme.of(context).accentColor,
+        child: new Icon(Icons.message,color: Colors.white,),
+        onPressed: ()=> print("open chats"),
       ),
     );
   }
